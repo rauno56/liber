@@ -4,7 +4,9 @@
   "description": "Shemaless ORMlike library for CouchDB",
   "main": "lib/Liber.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha ./test/spec/index.js",
+    "setUp": "node ./test/fixtures/setUp.js",
+    "tearDown": "node ./test/fixtures/tearDown.js"
   },
   "repository": {
     "type": "git",
@@ -16,6 +18,14 @@
     "shemaless",
     "angularjs"
   ],
+  "dependencies": {
+  },
+  "devDependencies": { 
+    "nano": "*",
+    "async": "*",
+    "mocha": "1.8.x",
+    "should": "0.6.x"
+  },
   "author": "Rauno Viskus",
   "license": "MIT"
 }

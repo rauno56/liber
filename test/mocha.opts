@@ -1,0 +1,5 @@
+--require should
+--reporter spec
+--ui bdd
+--globals db
+--timeout 5000

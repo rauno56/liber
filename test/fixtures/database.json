@@ -1,0 +1,69 @@
+[{
+   "_id": "_design/myapp",
+   "language": "javascript",
+   "views": {
+       "itemsByList": {
+           "map": "function(doc) {\n  if (type=\"list\") {\n    for (var i in doc.items) {\n      //{_id: i._id}\n      emit([doc._id, Number(i)+1], {_id: doc.items[i]});\n    }\n  }\n}"
+       },
+       "listByOwner": {
+           "map": "function(doc) {\n  if (doc.owner) {\n    emit(doc.owner, doc);\n  }\n  \n}"
+       },
+       "byPairingKey": {
+           "map": "function(doc) {\n  if (doc.pairingKey) {\n    emit(doc.pairingKey, doc);\n  }\n}"
+       },
+       "listsByPairingKey": {
+           "map": "function(doc) {\n  if (doc.pairingKey) {\n    emit(doc.pairingKey, doc);\n  }\n}"
+       },
+       "listsByOwner": {
+           "map": "function(doc) {\n  if (doc.owner) {\n    emit(doc.owner, doc);\n  }\n  \n}"
+       }
+   }
+},{
+  "_id": "some@body.com",
+  "secret": "donttell",
+  "kind": "user"
+},{
+  "_id": "me@world.com",
+  "secret": "hedidit",
+  "kind": "user"
+},{
+  "name": "Home at Elm street",
+  "kind": "asset",
+  "owner": "me@world.com",
+  "key": "123",
+  "bedrooms": 2,
+  "garage": ["audi"]
+},{
+  "name": "Garage in the suburbs",
+  "kind": "asset",
+  "bedrooms": 0,
+  "owner": "some@body.com",
+  "key": "WTF",
+  "garage": ["audi", "bmw", "MB"]
+},{
+  "_id": "audi",
+  "name": "A4",
+  "kind": "car",
+  "year": 2005,
+  "engine": 1.9
+},{
+  "_id": "bmw",
+  "name": "3. series",
+  "kind": "car",
+  "year": 1980,
+  "engine": 2.0
+},{
+  "_id": "MB",
+  "name": "Ponton",
+  "kind": "car",
+  "year": 1954,
+  "engine": 2.2
+},{
+  "kind": "work",
+  "name": "change lights",
+  "car": "bmw"
+},{
+  "kind": "work",
+  "name": "small bodywork",
+  "car": "audi"
+}]
