@@ -10,7 +10,7 @@ describe('Liber', function () {
   });
 
   it('should have promised api', function () {
-    var methods = [
+    var classMethods = [
       'get',
       'getOne',
       'getFromView',
@@ -20,8 +20,20 @@ describe('Liber', function () {
       'inherit'
     ];
 
-    methods.forEach(function (classMethod) {
-      Liber.should.have.property(classMethod);
+    var instanceMethods = [
+      'save',
+      'insert',
+      'destroy',
+      'parse'
+    ];
+
+    var instance = new Liber();
+    instanceMethods.forEach(function (method) {
+      instance.should.have.property(method);
+    });
+
+    classMethods.forEach(function (method) {
+      Liber.should.have.property(method);
     });
 
   });

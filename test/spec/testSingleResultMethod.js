@@ -26,7 +26,7 @@ exports = module.exports = function (Doc, method) {
 
   it('result should get the right data', function () {
     var thing = find(TEST_ON_ID);
-    res.should.have.property(TEST_ON_PROP, thing[TEST_ON_PROP]);
+    this.res.should.have.property(TEST_ON_PROP, thing[TEST_ON_PROP]);
   });
 
   it('result should be of correct class', function () {
