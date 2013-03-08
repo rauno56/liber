@@ -14,6 +14,9 @@
   },
   "keywords": [
     "couchdb",
+    "couch",
+    "odm",
+    "database",
     "orm",
     "shemaless",
     "angularjs"
