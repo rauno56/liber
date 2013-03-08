@@ -2,7 +2,7 @@ liber
 =====
 `Liber` makes using CouchDB not only easier to build but also shemaless. It is built on [nano][nano] and inspired by [AngularJS-Resource][angular].
 Principles:
-* **Minimalistic**: Keep functions you would be using(view generation etc.) out of this one. CouchDB's api is simple - do them by hand.
+* **Minimalistic**: Keep functions you would be using(view generation etc.) once out of this one. CouchDB's api is simple - do them using [nano][nano].
 * **Shemaless**: NoSQL is shemaless why should a driver differ.
 * **Expectedness**: Don't try to squeeze features of a RDBMS out of CouchDB, ergo don't generate anything automatically in the background. Be in control and know whats happening.
 
