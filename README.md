@@ -12,7 +12,7 @@ Principles:
 `npm install liber nano`
 
 ## Getting started
-to set libre up
+to set liber up
 ``` js
 var nano = require('nano')('http://localhost:5984/mydatabase');
 var Liber = require('liber')(db); //alias for document
@@ -62,18 +62,20 @@ User.getOneByLastName('Smith', cb);
 
 ##API: Class methods
 
-###Libre.inherit
-###Libre.parse
-###Libre.get
-###Libre.getOne
-###Libre.getFromView
-###Libre.getOneFromView
+###Liber.inherit(constructor, prototype, options)
+
+###Liber.parse
+###Liber.get
+###Liber.getOne
+###Liber.getFromView
+###Liber.getOneFromView
 
 ##API: Instance methods
 
 ###Doc.save
 ###Doc.insert
 ###Doc.destroy
+
 
 [npm]: http://npmjs.org
 [nano]: http://github.com/dscape/nano
