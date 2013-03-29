@@ -33,7 +33,7 @@ Liber.getOne('bobs_id', function (err, bob) {
 <!-- //Liber.inherit(Constructor, prototype, options); where Liber already has a pointer to database. -->
 
 function User(data) {
-  this.superClass.call(this, data); // needed to give more flexibility
+  this.superClass.call(this, data); // to give more flexibility
                                     // to construction process
   this.kind = 'user';
   this.fullName = this.lastName + ', ' + this.firstName;
@@ -41,8 +41,6 @@ function User(data) {
 
 User = Liber.inherit(User, {
   changePassword: function () { ... }
-}, {
-  'byLastName': ['designDoc', 'viewName']
 });
 
 User.get('anId', cb);
@@ -63,18 +61,48 @@ User.getOneByLastName('Smith', cb);
 ##API: Class methods
 
 ###Liber.inherit(constructor, prototype, options)
-
-###Liber.parse
-###Liber.get
-###Liber.getOne
-###Liber.getFromView
-###Liber.getOneFromView
+###Liber.parse(data)
+###Liber.get(params, callback)
+###Liber.getOne(id, [params, callback])
+###Liber.getFromView(design, view, params, callback)
+###Liber.getOneFromView(design, view, params, callback)
 
 ##API: Instance methods
 
-###Doc.save
-###Doc.insert
-###Doc.destroy
+###Doc.save(callback)
+###Doc.insert(callback)
+###Doc.destroy(callback)
+
+##API: Options
+
+###View shortcuts: `viewShortcuts`
+Generates methods to access views. Needs array of parameters to concat to the 
+beginning of parameters of method calls.
+Let's say User class declaration has a options of:
+``` js
+{
+  'viewShortcuts': {
+    'fromMyDesign': ['myDesignDoc'],
+    'byLastName': ['myDesignDoc', 'usersByLastName'],
+    'admins': ['myDesignDoc', 'usersByStatus', 'admin']
+  }
+}
+```
+then
+``` js
+User.getOneFromMyDesign('usersByAddress', 'broad way');
+// == User.getOneFromView('myDesignDoc', 'usersByAddress', 'broad way');
+
+User.getByLastName('smith');
+// == User.getFromView('myDesignDoc', 'usersByLastName', 'smith');
+
+User.getAdmins();
+// == User.getFromView('myDesignDoc', 'usersByStatus', 'admin');
+```
+Although linguistically a bit off, the `getOneAdmins` would limit latter to first 
+match. The shortcuts are very cheap to make so you could fix that by duplicating 
+'admins' with an 'admin' so you'll have both `get(One)Admin` and `get(One)Admins`.
+
 
 
 [npm]: http://npmjs.org
