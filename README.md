@@ -29,9 +29,6 @@ Liber.getOne('bobs_id', function (err, bob) {
 
 ##Inheritance
 ``` js
-
-<!-- //Liber.inherit(Constructor, prototype, options); where Liber already has a pointer to database. -->
-
 function User(data) {
   this.superClass.call(this, data); // to give more flexibility
                                     // to construction process
@@ -41,6 +38,10 @@ function User(data) {
 
 User = Liber.inherit(User, {
   changePassword: function () { ... }
+}, {
+  'viewShortCuts': {
+    'byLastName': ['myDesignDoc', 'usersByLastName']
+  }
 });
 
 User.get('anId', cb);
