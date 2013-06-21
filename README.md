@@ -39,7 +39,7 @@ function User(data) {
 User = Liber.inherit(User, {
   changePassword: function () { ... }
 }, {
-  'viewShortCuts': {
+  'viewShortcuts': {
     'byLastName': ['myDesignDoc', 'usersByLastName']
   }
 });
