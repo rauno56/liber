@@ -1,9 +1,9 @@
 liber
 =====
-`Liber` makes using CouchDB not only easier to build but also shemaless. It is built on [nano][nano] and inspired by [AngularJS-Resource][angular].
+`Liber` makes using CouchDB not only easier to build but also schemaless. It is built on [nano][nano] and inspired by [AngularJS-Resource][angular].
 Principles:
 * **Minimalistic**: Keep functions you would be using(view generation etc.) once out of this one. CouchDB's api is simple - do them using [nano][nano].
-* **Shemaless**: NoSQL is shemaless why should a driver differ.
+* **Schemaless**: NoSQL is schemaless why should a driver differ.
 * **Expectedness**: Don't try to squeeze features of a RDBMS out of CouchDB, ergo don't generate anything automatically in the background. Be in control and know whats happening.
 
 ## Installation
@@ -77,7 +77,7 @@ User.getOneByLastName('Smith', cb);
 ##API: Options
 
 ###View shortcuts: `viewShortcuts`
-Generates methods to access views. Needs array of parameters to concat to the 
+Generates methods to access views. Needs array of parameters to concat to the
 beginning of parameters of method calls.
 Let's say User class declaration has a options of:
 ``` js
@@ -100,8 +100,8 @@ User.getByLastName('smith');
 User.getAdmins();
 // == User.getFromView('myDesignDoc', 'usersByStatus', 'admin');
 ```
-Although linguistically a bit off, the `getOneAdmins` would limit latter to first 
-match. The shortcuts are very cheap to make so you could fix that by duplicating 
+Although linguistically a bit off, the `getOneAdmins` would limit latter to first
+match. The shortcuts are very cheap to make so you could fix that by duplicating
 'admins' with an 'admin' so you'll have both `get(One)Admin` and `get(One)Admins`.
 
 
