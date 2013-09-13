@@ -1,7 +1,7 @@
 {
   "name": "liber",
   "version": "0.0.4",
-  "description": "Shemaless ORMlike library for CouchDB",
+  "description": "Schemaless ORMlike library for CouchDB",
   "main": "lib/Liber.js",
   "scripts": {
     "test": "mocha ./test/spec/index.js",
@@ -18,12 +18,12 @@
     "odm",
     "database",
     "orm",
-    "shemaless",
+    "schemaless",
     "angularjs"
   ],
   "dependencies": {
   },
-  "devDependencies": { 
+  "devDependencies": {
     "nano": "*",
     "async": "*",
     "mocha": "1.8.x",
